@@ -29,11 +29,13 @@ app.use(express.static("public"))
 import userRouter from "./routers/user.router.js"
 import speakerRouter from "./routers/speaker.route.js"
 import eventRouter from "./routers/event.route.js"
+import chatRouter from "./routers/chat.route.js"
 
 // use router
 app.use("/api/v1/users", userRouter)
 app.use("/api/v1/speaker", speakerRouter)
 app.use("/api/v1/event", eventRouter)
+app.use("/api/v1/chat", chatRouter)
 
 app.get("/", (req, res) => {
     console.log("Hello World");

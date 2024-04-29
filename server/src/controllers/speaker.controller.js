@@ -82,24 +82,26 @@ const getSpeakerDetails = asyncHandler( async (req, res) => {
 
 const createSpeaker = asyncHandler( async (req, res) => {
     try {
+        console.log("Calling create speaker")
         const userId = req.user._id;
         const userDetails = await User.findById(userId);
-        
+
         if(!userDetails){
             throw new ApiError(400, "User not exit.");
         }
-        console.log(userDetails)
+        // console.log(userDetails)
         if(userDetails.role == "speaker") {
             throw new ApiError(400, "User is already a speaker.")
         }
-        console.log("enter here")
-
+        
         if(!userId && !bio && !education && experience ) {
             throw new ApiError(400, "All field must be filled")
         }
-
-        const obj = req.body;
+        
+        console.log("enter here", req.body)
+        let obj = req.body;
         obj.user = userDetails._id
+
         const savedSpeaker = await Speaker.create(obj);
 
         if(!savedSpeaker) {
