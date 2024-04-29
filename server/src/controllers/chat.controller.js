@@ -12,7 +12,7 @@ const options = {
 
 const getMessages = asyncHandler( async (req, res) => {
     try {
-        
+        // console.log("Enter in get messages")
         const messages = await User.findById(req.user._id).select("messages");
         
         res
@@ -33,7 +33,7 @@ const postMessage = asyncHandler( async (req, res) => {
         
     const userId = req.user._id;
     const message = req.body; // Extract message from request body
-
+//    console.log(message)
     if (!message) {
       return res.status(400).json({ message: 'Missing message content' });
     }
@@ -42,7 +42,7 @@ const postMessage = asyncHandler( async (req, res) => {
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
-    console.log(message)
+    // console.log(message)
     user.messages.push(message ); // Add message object to messages array
     
     await user.save(); // Save the updated user

@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/login/page.js", "app/signup/page.js", "app/events/page.jsx", "app/events/[id]/page.jsx", "app/speakers/[id]/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/login/page.js", "app/signup/page.js", "app/events/page.jsx", "app/events/[id]/page.jsx", "app/speakers/[id]/page.jsx", "app/speakers/new/page.jsx"],
   "exclude": ["node_modules"]
 }
